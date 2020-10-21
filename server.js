@@ -19,11 +19,8 @@ const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
 
 var users = [];
-app.use(express.static("public"));
 
-app.get('/', function(req,res) {
-    res.sendFile(__dirname+'/index.html');
-});
+app.use(express.static("public"));
 
 io.sockets.on('connection', function(socket) { 
     users.push({
